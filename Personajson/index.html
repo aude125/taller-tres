@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar JSON</title>
+</head>
+<body>
+    <h1>Datos de Personas</h1>
+    <pre id="jsonData"></pre>
+
+    <script>
+        // Cargar datos desde el archivo JSON
+        fetch('personajson.js')
+            .then(response => response.json())
+            .then(data => {
+                const jsonString = JSON.stringify(data, null, 4);
+                document.getElementById('jsonData').textContent = jsonString;
+            })
+            .catch(error => console.error('Error al cargar el archivo JSON:', error));
+    </script>
+</body>
+</html>
